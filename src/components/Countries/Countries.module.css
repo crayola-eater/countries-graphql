@@ -1,0 +1,22 @@
+.table {
+  text-align: center;
+  background-color: #3a384c;
+  color: rgb(230, 228, 247);
+  border-radius: 5px;
+}
+
+.heading {
+  background-color: inherit;
+  padding: 2rem;
+  font-size: 3rem;
+  letter-spacing: 0.25rem;
+}
+
+.cell {
+  padding: 0.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
