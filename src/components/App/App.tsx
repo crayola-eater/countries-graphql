@@ -1,19 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
 import Countries from "../Countries/Countries.jsx";
-
-export const GET_COUNTRIES = gql`
-  query GetCountries {
-    countries {
-      code
-      emoji
-      name
-      native
-    }
-  }
-`;
+import useCountries from "../../hooks/useCountries.js";
 
 export default function App() {
-  const { loading, error, data = null } = useQuery(GET_COUNTRIES);
+  const { error, loading, data } = useCountries();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -23,5 +12,9 @@ export default function App() {
     return <p>An error occurred: {error.message}</p>;
   }
 
-  return <Countries countries={data.countries} />;
+  if (!data) {
+    return <p>No data to show, please try again later.</p>;
+  }
+
+  return <Countries countries={data} />;
 }
