@@ -1,14 +1,24 @@
 # Purpose
 
-Small example of fetching country related information from a public graphql server.
+Small example of fetching country related information from a public GraphQL server.
 
 # Tools used
 
-- React
-- TypeScript
-- Apollo Client (GraphQL)
-- Vite
-- CSS modules
+- Application
+
+  - React
+  - Apollo Client (GraphQL)
+
+- Development
+
+  - TypeScript
+  - Vite
+  - CSS modules
+
+- Testing
+  - React testing library
+  - JSDOM
+  - Vitest
 
 # Example
 
