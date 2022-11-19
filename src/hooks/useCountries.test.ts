@@ -1,5 +1,5 @@
 import { it, expect } from "vitest";
-import { renderHook, RenderHookOptions, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 import useCountries from "./useCountries";
 import ApolloProviderWithClient from "../contexts/ApolloProvider";
 
