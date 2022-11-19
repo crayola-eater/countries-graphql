@@ -1,17 +1,7 @@
+import type { CountriesProps } from "../../types/countries";
 import css from "./Countries.module.css";
 
 const headers = ["name", "native", "emoji", "code"] as const;
-
-type Country = {
-  code: string;
-  emoji: string;
-  name: string;
-  native: string;
-};
-
-type CountriesProps = {
-  countries: Country[];
-};
 
 export default function Table({ countries }: CountriesProps) {
   return (
