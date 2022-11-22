@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 :root {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  --primary-font: "Nanum Gothic", sans-serif;
+  --primary-font: 'Nanum Gothic', sans-serif;
 }
 
 * {

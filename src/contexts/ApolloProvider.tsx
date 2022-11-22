@@ -1,8 +1,8 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import type { ReactNode } from "react";
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import type { ReactNode } from 'react';
 
 const client = new ApolloClient({
-  uri: "https://countries.trevorblades.com/graphql",
+  uri: 'https://countries.trevorblades.com/graphql',
   cache: new InMemoryCache(),
 });
 

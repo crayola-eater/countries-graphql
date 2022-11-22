@@ -1,14 +1,14 @@
-import type { CountriesProps } from "../../types/countries";
-import css from "./Countries.module.css";
+import type { CountriesProps } from '../../types/countries';
+import css from './Countries.module.css';
 
-const headers = ["name", "native", "emoji", "code"] as const;
+const headers = ['name', 'native', 'emoji', 'code'] as const;
 
 export default function Table({ countries }: CountriesProps) {
   return (
     <table className={css.table}>
       <thead>
         <tr className={css.row}>
-          {headers.map((header) => {
+          {headers.map(header => {
             return (
               <th key={header} className={css.heading}>
                 {header}
@@ -18,8 +18,8 @@ export default function Table({ countries }: CountriesProps) {
         </tr>
       </thead>
       <tbody>
-        {countries.map((country) => {
-          const cells = headers.map((property) => (
+        {countries.map(country => {
+          const cells = headers.map(property => (
             <td key={property} className={css.cell}>
               {country[property]}
             </td>
