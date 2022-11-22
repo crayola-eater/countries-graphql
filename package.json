@@ -9,8 +9,10 @@
     "preview": "vite preview",
     "test": "vitest",
     "format": "prettier -w .",
-    "lint": "eslint .",
-    "ci-checks": "tsc && prettier -c . && eslint . && vitest --run"
+    "ci-tsc": "tsc",
+    "ci-format": "prettier -c .",
+    "ci-lint": "eslint .",
+    "ci-tests": "vitest --run"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
