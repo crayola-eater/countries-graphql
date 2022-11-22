@@ -1,5 +1,5 @@
-import Countries from "../Countries/Countries.jsx";
-import useCountries from "../../hooks/useCountries.js";
+import Countries from '../Countries/Countries.jsx';
+import useCountries from '../../hooks/useCountries.js';
 
 export default function App() {
   const { error, loading, data } = useCountries();

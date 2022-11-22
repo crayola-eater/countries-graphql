@@ -1,7 +1,7 @@
-import { it, expect } from "vitest";
-import { renderHook, waitFor } from "@testing-library/react";
-import useCountries from "./useCountries";
-import ApolloProviderWithClient from "../contexts/ApolloProvider";
+import { it, expect } from 'vitest';
+import { renderHook, waitFor } from '@testing-library/react';
+import useCountries from './useCountries';
+import ApolloProviderWithClient from '../contexts/ApolloProvider';
 
 /**
  * Helper function for tests. Keep implementation as simple and close to actual app as possible.
@@ -15,7 +15,7 @@ function renderUseCountriesHook() {
   });
 }
 
-it("should have valid initial state", async () => {
+it('should have valid initial state', async () => {
   const { result } = renderUseCountriesHook();
 
   expect(result.current).toStrictEqual({
@@ -25,7 +25,7 @@ it("should have valid initial state", async () => {
   });
 });
 
-it("should have valid state once fetched", async () => {
+it('should have valid state once fetched', async () => {
   const { result } = renderUseCountriesHook();
 
   await waitFor(() => {
@@ -38,14 +38,18 @@ it("should have valid state once fetched", async () => {
     data: expect.any(Array),
   });
 
+  if (undefined === result.current.data) {
+    throw new Error('"data" should not be undefined');
+  }
+
   /**
    * Non-null assertion operator safe to use (below) as in order for execution
    * to reach this line, the above runtime assertion (that `result.current.data` is
    * an array) must have been true.
    */
-  result.current.data!.forEach((country: any) => {
+  result.current.data.forEach(country => {
     expect(country).toStrictEqual({
-      __typename: "Country",
+      __typename: 'Country',
       code: expect.stringMatching(/^[A-Z]{2}$/),
       emoji: expect.any(String),
       name: expect.any(String),
