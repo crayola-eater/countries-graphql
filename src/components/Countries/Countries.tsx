@@ -1,9 +1,13 @@
-import type { CountriesProps } from '../../types/countries';
+import type { Country } from '../../types/countries';
 import css from './Countries.module.css';
 
 const headers = ['name', 'native', 'emoji', 'code'] as const;
 
-export default function Table({ countries }: CountriesProps) {
+type CountriesProps = {
+  countries: Country[];
+};
+
+export default function Countries({ countries }: CountriesProps) {
   return (
     <table className={css.table}>
       <thead>

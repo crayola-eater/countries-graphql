@@ -4,7 +4,3 @@ export type Country = {
   name: string;
   native: string;
 };
-
-export type CountriesProps = {
-  countries: Country[];
-};
