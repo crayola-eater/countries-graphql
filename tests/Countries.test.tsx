@@ -1,47 +1,10 @@
 import { it, expect, beforeEach } from 'vitest';
 import { screen, render, within } from '@testing-library/react';
-import Countries from './Countries';
-
-const countries = [
-  {
-    code: 'CW',
-    emoji: '🇨🇼',
-    name: 'Curacao',
-    native: 'Curaçao',
-    __typename: 'Country',
-  },
-  {
-    code: 'CX',
-    emoji: '🇨🇽',
-    name: 'Christmas Island',
-    native: 'Christmas Island',
-    __typename: 'Country',
-  },
-  {
-    code: 'CY',
-    emoji: '🇨🇾',
-    name: 'Cyprus',
-    native: 'Κύπρος',
-    __typename: 'Country',
-  },
-  {
-    code: 'CZ',
-    emoji: '🇨🇿',
-    name: 'Czech Republic',
-    native: 'Česká republika',
-    __typename: 'Country',
-  },
-  {
-    code: 'DE',
-    emoji: '🇩🇪',
-    name: 'Germany',
-    native: 'Deutschland',
-    __typename: 'Country',
-  },
-];
+import Countries from '../src/components/Countries/Countries';
+import { data } from './fixtures/get-countries';
 
 beforeEach(() => {
-  render(<Countries countries={countries} />);
+  render(<Countries data={data} />);
 });
 
 it('should render table', () => {
@@ -57,14 +20,14 @@ it.each(['name', 'native', 'emoji', 'code'])('should render column %s', columnNa
 it('should render correct number of table rows', () => {
   () => {
     const tableRows = screen.getAllByRole('row');
-    expect(tableRows).toHaveLength(countries.length);
+    expect(tableRows).toHaveLength(data.countries.length);
   };
 });
 
 it('should render correct data', () => {
   const [, ...tableRows] = screen.getAllByRole('row');
 
-  for (const [i, country] of countries.entries()) {
+  for (const [i, country] of data.countries.entries()) {
     const cellsOnThisRow = within(tableRows[i]).getAllByRole('cell');
     expect(cellsOnThisRow).toHaveLength(4);
 
