@@ -1,13 +1,13 @@
-import type { Country } from '../../types/countries';
+import type { GetCountriesQuery } from '../../graphql/types';
 import css from './Countries.module.css';
 
 const headers = ['name', 'native', 'emoji', 'code'] as const;
 
 type CountriesProps = {
-  countries: Country[];
+  data: GetCountriesQuery;
 };
 
-export default function Countries({ countries }: CountriesProps) {
+export default function Countries({ data }: CountriesProps) {
   return (
     <table className={css.table}>
       <thead>
@@ -22,7 +22,7 @@ export default function Countries({ countries }: CountriesProps) {
         </tr>
       </thead>
       <tbody>
-        {countries.map(country => {
+        {data.countries.map(country => {
           const cells = headers.map(property => (
             <td key={property} className={css.cell}>
               {country[property]}
