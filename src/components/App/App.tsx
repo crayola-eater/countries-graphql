@@ -1,8 +1,8 @@
-import Countries from '../Countries/Countries.jsx';
-import useCountries from '../../hooks/useCountries.js';
+import Countries from '../Countries/Countries.js';
+import { useGetCountriesQuery } from '../../graphql/types.js';
 
 export default function App() {
-  const { error, loading, data } = useCountries();
+  const { error, loading, data } = useGetCountriesQuery();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -16,5 +16,5 @@ export default function App() {
     return <p>No data to show, please try again later.</p>;
   }
 
-  return <Countries countries={data} />;
+  return <Countries data={data} />;
 }
